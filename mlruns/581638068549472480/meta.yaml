@@ -1,0 +1,6 @@
+artifact_location: file:///Users/danhmac/Documents/mlops-course-solutions/mlruns/581638068549472480
+creation_time: 1761382269827
+experiment_id: '581638068549472480'
+last_update_time: 1761382269827
+lifecycle_stage: active
+name: housing_price_prediction

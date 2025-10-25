@@ -1,0 +1,15 @@
+creation_timestamp: 1761382271660
+current_stage: None
+deployment_job_state: null
+description: null
+last_updated_timestamp: 1761382271660
+model_id: m-821b1719c6f6400b97783450bb742f7b
+name: housing_price_predictor
+run_id: 2a6b69359a104aa0b8128234795359f4
+run_link: null
+source: models:/m-821b1719c6f6400b97783450bb742f7b
+status: READY
+status_message: null
+storage_location: file:///Users/danhmac/Documents/mlops-course-solutions/mlruns/581638068549472480/models/m-821b1719c6f6400b97783450bb742f7b/artifacts
+user_id: null
+version: 1
