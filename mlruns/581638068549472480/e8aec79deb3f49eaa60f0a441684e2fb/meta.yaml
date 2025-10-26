@@ -1,0 +1,14 @@
+artifact_uri: file:///Users/danhmac/Documents/mlops-course-solutions/mlruns/581638068549472480/e8aec79deb3f49eaa60f0a441684e2fb/artifacts
+end_time: 1761382617565
+entry_point_name: ''
+experiment_id: '581638068549472480'
+lifecycle_stage: active
+run_id: e8aec79deb3f49eaa60f0a441684e2fb
+run_name: housing_linear_regression
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1761382614968
+status: 3
+tags: []
+user_id: danhmac
