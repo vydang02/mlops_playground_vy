@@ -5,8 +5,8 @@ model_name = "housing_prediction"
 model_version = "1"
 alias = "the_best"
 
-# model_uri = f"models:/{model_name}/{model_version}"
-model_uri = f"models:/{model_name}@{alias}"
+model_uri = f"models:/{model_name}/{model_version}"
+# model_uri = f"models:/{model_name}@{alias}"
 
 model = mlflow.sklearn.load_model(model_uri)
 
