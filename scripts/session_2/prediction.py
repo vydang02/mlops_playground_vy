@@ -1,9 +1,15 @@
+import os
+
 import mlflow.sklearn
 import pandas as pd
 
+MLFLOW_TRACKING_URI = os.getenv("MLFLOW_TRACKING_URI", "http://localhost:5050")
+
+mlflow.set_tracking_uri(uri=MLFLOW_TRACKING_URI)
+
 model_name = "housing_prediction"
 model_version = "1"
-alias = "the_best"
+alias = "production"
 
 model_uri = f"models:/{model_name}/{model_version}"
 # model_uri = f"models:/{model_name}@{alias}"
