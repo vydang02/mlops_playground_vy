@@ -1,3 +1,5 @@
+import os
+
 import mlflow.sklearn
 import pandas as pd
 from fastapi import APIRouter
@@ -5,15 +7,20 @@ from fastapi import APIRouter
 from scripts.session_3.schemas.request import HousingPredictionRequest
 from scripts.session_3.schemas.response import HousingPredictionResponse
 
+MLFLOW_TRACKING_URI = os.getenv("OUR_MLFLOW_HOST", "http://localhost:5050")
+print(f"MLFLOW_TRACKING_URI: {MLFLOW_TRACKING_URI}")
+
+mlflow.set_tracking_uri(uri=MLFLOW_TRACKING_URI)
+
 model_name = "housing_prediction"
 model_version = "1"
-alias = "the_best"
+alias = "production"
 
 model_uri = f"models:/{model_name}/{model_version}"
 
 model = mlflow.sklearn.load_model(model_uri)
 
-housing_router = APIRouter(prefix="housing")
+housing_router = APIRouter(prefix="/housing")
 
 
 # /housing/predict
