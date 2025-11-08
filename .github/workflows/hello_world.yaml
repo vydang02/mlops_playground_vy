@@ -3,6 +3,9 @@ on:
     push:
         paths:
             - 'scripts/session_6/helloworld.txt'
+    pull_request:
+        paths:
+            - 'scripts/session_6/hello_new_pr.txt'
 
 jobs:
     hello-world-job:
@@ -10,5 +13,11 @@ jobs:
         steps:
             - name: Checkout code
               uses: actions/checkout@v3
+              # select file to run based on the event
             - name: Print the contents of the file
-              run: cat scripts/session_6/helloworld.txt
+              run: |
+                if [ "$GITHUB_EVENT_NAME" == "push" ]; then
+                  cat scripts/session_6/helloworld.txt
+                else
+                  cat scripts/session_6/hello_new_pr.txt
+                fi
