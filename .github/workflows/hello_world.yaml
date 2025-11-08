@@ -6,6 +6,12 @@ on:
     pull_request:
         paths:
             - 'scripts/session_6/hello_new_pr.txt'
+    workflow_dispatch:
+        inputs:
+            message:
+                description: The message to print
+                required: true
+                default: "Hello, World!"
 
 jobs:
     hello-world-job:
@@ -18,6 +24,8 @@ jobs:
               run: |
                 if [ "$GITHUB_EVENT_NAME" == "push" ]; then
                   cat scripts/session_6/helloworld.txt
-                else
+                elif [ "$GITHUB_EVENT_NAME" == "pull_request" ]; then
                   cat scripts/session_6/hello_new_pr.txt
+                else
+                  echo ${{ inputs.message }}
                 fi
