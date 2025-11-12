@@ -3,14 +3,13 @@ name: Classroom Workflow
 on:
   push:
     paths:
-      - 'scripts/session_6/hello_world.txt'
+      - 'scripts\session_6\hello_world.txt'
 
 jobs:
   classroom_job:
-    runs-on: ubuntu-lastest 
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code 
         uses: actions/checkout@v3 
       - name: Print latest content
         run: cat scripts/session_6/hello_world.txt 
-        
