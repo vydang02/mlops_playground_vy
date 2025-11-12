@@ -61,7 +61,7 @@ def test_predict(mock_mlflow_server, mock_model, mock_pandas):
     assert response.json() == {"predicted_price": 2.0}
     mock_pandas.DataFrame.assert_called_once_with(
         {
-            "Avg. Area Incom": [100000],
+            "Avg. Area Income": [100000],
             "Avg. Area House Age": [10],
             "Avg. Area Number of Rooms": [3],
             "Avg. Area Number of Bedrooms": [2],
