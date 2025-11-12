@@ -46,7 +46,7 @@ jobs:
         with:
           push: true
           context: .
-          tags: ${{ vars.DOCKER_USERNAME }}/mlops-course-app:PULL-${{ github.event.number }}
+          tags: docker.io/${{ vars.DOCKER_USERNAME }}/mlops-course-app:PULL-${{ github.event.number }}
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v3
         with:
@@ -55,7 +55,7 @@ jobs:
         uses: google-github-actions/deploy-cloudrun@v3
         with:
           service: 'mlops-course-app-pr'
-          image: '${{ vars.DOCKER_USERNAME }}/mlops-course-app:PULL-${{ github.event.number }}'
+          image: 'docker.io/${{ vars.DOCKER_USERNAME }}/mlops-course-app:PULL-${{ github.event.number }}'
   deploy_main:
     needs: test_job
     if: startsWith(github.ref, 'refs/heads/main')
@@ -74,7 +74,7 @@ jobs:
           push: true
           context: .
           # get 9 first characters of the sha
-          tags: ${{ vars.DOCKER_USERNAME }}/mlops-course-app:${GITHUB_SHA:0:9}
+          tags: docker.io/${{ vars.DOCKER_USERNAME }}/mlops-course-app:${GITHUB_SHA:0:9}
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v3
         with:
@@ -83,4 +83,4 @@ jobs:
         uses: google-github-actions/deploy-cloudrun@v3
         with:
           service: 'mlops-course-app'
-          image: '${{ vars.DOCKER_USERNAME }}/mlops-course-app:${GITHUB_SHA:0:9}'
+          image: 'docker.io/${{ vars.DOCKER_USERNAME }}/mlops-course-app:${GITHUB_SHA:0:9}'
