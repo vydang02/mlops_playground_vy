@@ -2,8 +2,8 @@ import mlflow.sklearn
 import pandas as pd
 
 model_name = "housing_prediction"
-model_version = "1"
-alias = "the_best"
+model_version = "2"
+alias = "thebest"
 
 # model_uri = f"models:/{model_name}/{model_version}"
 model_uri = f"models:/{model_name}@{alias}"
@@ -34,3 +34,5 @@ def create_sample_data():
 
 predictions = model.predict(create_sample_data())
 print(f"Predicted price: ${predictions[0]:,.2f}")
+
+

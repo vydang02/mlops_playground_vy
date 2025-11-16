@@ -66,9 +66,9 @@ def train():
         remainder="drop",
     )
     max_iter = 5000
-    tol = 1e-3
+    tol = 1e-6
     learning_rate = "optimal"
-    random_state = 20
+    random_state = 42
 
     model = Pipeline(
         steps=[
@@ -87,10 +87,9 @@ def train():
     )
 
     logger.info("Training model...")
-    with mlflow.start_run(run_name="housing_linear_regression_5"):
+    with mlflow.start_run(run_name="housing_linear_regression") as run:
         mlflow.log_param(
-            "max_iter",
-            max_iter,
+            "max_iter", max_iter
         )
         mlflow.log_param("tol", tol)
         mlflow.log_param("learning_rate", learning_rate)
@@ -142,6 +141,7 @@ def train():
         mlflow.log_metric("test_mse", test_mse)
         mlflow.log_metric("test_mae", test_mae)
         mlflow.log_metric("test_r2", test_r2)
+
         mlflow.log_artifact(MODEL_PATH, "artifacts")
         mlflow.sklearn.log_model(model, "model")
 
