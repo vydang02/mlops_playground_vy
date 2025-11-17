@@ -19,7 +19,4 @@ jobs:
             cat scripts/session_6/hello_world.txt
           elif [ "$GITHUB_EVENT_NAME" == "pull_request" ]; then
             cat scripts/session_6/pull_request_test.txt
-          else
-            echo "No event name found"
-            exit 1
           fi
